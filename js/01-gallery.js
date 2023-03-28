@@ -9,6 +9,7 @@ function createGalleryMarkup(images) {
   <a class="gallery__link" href="${original}" onclick="event.preventDefault()"> 
     <img
       class="gallery__image"
+      loading="lazy"
       src="${preview}"
       data-source="${original}"
       alt="${description}"
@@ -30,6 +31,8 @@ imagesGallery.insertAdjacentHTML('beforeend', imageMarkup);
 imagesGallery.addEventListener('click', onImageClick);
 
 function onImageClick(event) {
+     event.preventDefault();
+
     if (!event.target.classList.contains('gallery__image')) {
         return;
     }
