@@ -45,10 +45,13 @@ function onImageClick(event) {
     <img src="${originalImageSource}" width="800" height="600">`);
     instance.show();
 
-    imagesGallery.addEventListener('keydown', (event) => {
+    imagesGallery.addEventListener('keydown', keydownHandler);
+    
+    const keydownHandler = (event) => {
         if (event.code === "Escape") {
             instance.close();
         }
-    })
+    };
+    imagesGallery.removeEventListener('keydown', keydownHandler);
 }
 
